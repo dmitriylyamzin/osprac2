@@ -1,0 +1,32 @@
+t=int(input())
+for i in range(t):
+    n=int(input())
+    a=[]
+    for j in range(n):
+        a.append([])
+        b=input()
+        for k in range(n):
+            a[j].append(b[k])
+    c=n**2
+    d=0
+    for l in range(3):
+        o=0
+        f=a
+        for j in range(n):
+            for k in range(n):
+                if f[j][k]=='X':
+                    if (k+l-j%3)%3==0:
+                        o+=1
+        if o<c:
+            c=o
+            d=l
+    for j in range(n):
+        for k in range(n):
+            if a[j][k]=='X':
+                if (k+d-j%3)%3==0:
+                    a[j][k]='O'    
+    for j in range(n):
+        e=''
+        for k in range(n):
+            e+=a[j][k]
+        print(e)
